@@ -12,5 +12,5 @@ module add ffmpeg/2.4
 alias k40='qsub -I -l select=1:ncpus=8:ngpus=1:gpu_model=k40,walltime=06:00:00'
 
 # YOLO PATHS
-export PATH=$PATH:/scratch2/${USER}/YOLO_Palmetto/cuDNNv5.1/include/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/scratch2/${USER}/YOLO_Palmetto/cuDNNv5.1/lib64/
+export PATH=$PATH:/scratch2/${USER}/Palmetto-Darknet/CUDAv7.5_cuDNNv5.1/include/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/scratch2/${USER}/Palmetto-Darknet/CUDAv7.5_cuDNNv5.1/lib64/
