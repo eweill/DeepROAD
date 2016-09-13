@@ -9,7 +9,7 @@ else
     mkdir -p ../weights
 fi
 
-if [ "$1" == "help" ]; then
+if [ "$1" == "help" ] || [ "$1" == '-h' ] || [ "$1" == "" ]; then
     echo "Help Menu:"
     echo "    yolo: Download yolo model weights."
     echo "    tiny-yolo: Download tiny-yolo model weights."
