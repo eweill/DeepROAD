@@ -1,11 +1,13 @@
 # DeepROAD
 This project houses all scripts and code necessary for use of the DeepROAD Suite (in development).
 
-## Install Darknet on Palmetto
+## Palmetto Cluster
+
+### Install Darknet on Palmetto
 
 Please follow the instructions on [Install Darknet on Palmetto](https://github.com/eweill/DeepROAD/blob/master/InstallDarknet.md)
 
-## Downloading weights and configuration files
+### Downloading weights and config files
 
 Simply run the `get-data` script to retrieve weights and configuration as follows
 
@@ -19,3 +21,9 @@ Simply run the `get-data` script to retrieve weights and configuration as follow
 	/scratch2/${USER}/DeepROAD/CU-Darknet/scripts/get-data all
 
 This script will check the `weights` and `cfg` directories to make sure not to overwrite any files already located in those directories.
+
+## Jetson TX1 (or TK1)
+
+### Installing Darknet on Jetson TX1
+
+### Downloading weights and config files
