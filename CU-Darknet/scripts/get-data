@@ -1,0 +1,238 @@
+#!/bin/bash
+
+if [ -d ../weights ]; then
+    echo "Weights directory already exists"
+    echo "Placing all weights in ../weights"
+else
+    echo "Making directory ../weights"
+    echo "Placing all weights in ../weights"
+    mkdir -p ../weights
+fi
+
+if [ "$1" == "help" ]; then
+    echo "Help Menu:"
+    echo "    yolo: Download yolo model weights."
+    echo "    tiny-yolo: Download tiny-yolo model weights."
+    echo "    yolo-rescore: Download yolo-rescore weights."
+    echo "    extraction-conv: Download extraction convolution weights."
+    echo "    darknet-conv: Download darknet convolution weights."
+    echo "    alexnet: Download AlexNet configuration and weights."
+    echo "    vgg16: Download VGG-16 configuration and weights."
+    echo "    extraction: Dwonload extraction configuration and weights."
+    echo "    strided: Download strided configuration and weight."
+    echo "    all: Downloads all models and weights that haven't been downloaded."
+
+elif [ "$1" == "yolo" ]; then
+    if [ ! -f ../weights/yolo.weights ]; then
+        echo "Downloading yolo.weights."
+        wget -O ../weights/yolo.weights http://pjreddie.com/media/files/yolo.weights
+    else
+        echo "yolo.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "tiny-yolo" ]; then
+    if [ ! -f ../weights/tiny-yolo.weights ]; then
+        echo "Downloading tiny-yolo.weights."
+        wget -O ../weights/tiny-yolo.weights http://pjreddie.com/media/files/tiny-yolo.weights
+    else
+        echo "tiny-yolo.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "yolo-rescore" ]; then
+    if [ ! -f ../weights/yolo.rescore.weights ]; then
+        echo "Downloading yolo.rescore.weights."
+        wget -O ../weights/yolo.rescore.weights http://pjreddie.com/media/files/yolo.rescore.weights
+    else
+        echo "yolo.rescore.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "extraction-conv" ]; then
+    if [ ! -f ../weights/extraction.conv.weights ]; then
+        echo "Downloading extraction.conv.weights."
+        wget -O ../weights/extraction.conv.weights http://pjreddie.com/media/files/extraction.conv.weights
+    else
+        echo "extraction.conv.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "darknet-conv" ]; then
+    if [ ! -f ../weights/darknet.conv.weights ]; then
+        echo "Downloading darknet.conv.weights."
+        wget -O ../weights/darknet.conv.weights http://pjreddie.com/media/files/darknet.conv.weights
+    else
+        echo "darknet.conv.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "alexnet" ]; then
+    if [ ! -f ../cfg/alexnet.cfg ]; then
+        echo "Downloading alexnet.cfg."
+        wget -O ../cfg/alexnet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/alexnet.cfg
+    else
+        echo "alexnet.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/alexnet.weights ]; then
+    	echo "Downloading alexnet.weights"
+    	wget -O ../weights/alexnet.weights http://pjreddie.com/media/files/alexnet.weights
+    else
+    	echo "alexnet.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "darknet-ref" ]; then
+    if [ ! -f ../cfg/darknet.cfg ]; then
+        echo "Downloading darknet.cfg."
+        wget -O ../cfg/darknet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/darknet.cfg
+    else
+        echo "darknet.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/darknet.weights ]; then
+    	echo "Downloading darknet.weights"
+    	wget -O ../weights/darknet.weights http://pjreddie.com/media/files/darknet.weights
+    else
+    	echo "darknet.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "vgg16" ]; then
+    if [ ! -f ../cfg/vgg-16.cfg ]; then
+        echo "Downloading vgg-16.cfg."
+        wget -O ../cfg/vgg-16.cfg https://github.com/pjreddie/darknet/blob/master/cfg/vgg-16.cfg
+    else
+        echo "vgg-16.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/vgg-16.weights ]; then
+    	echo "Downloading vgg-16.weights"
+    	wget -O ../weights/vgg-16.weights http://pjreddie.com/media/files/vgg-16.weights
+    else
+    	echo "vgg-16.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "extraction" ]; then
+    if [ ! -f ../cfg/extraction.cfg ]; then
+        echo "Downloading extraction.cfg."
+        wget -O ../cfg/extraction.cfg https://github.com/pjreddie/darknet/blob/master/cfg/extraction.cfg
+    else
+        echo "extraction.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/extraction.weights ]; then
+    	echo "Downloading extraction.weights"
+    	wget -O ../weights/extraction.weights http://pjreddie.com/media/files/extraction.weights
+    else
+    	echo "extraction.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "strided" ]; then
+    if [ ! -f ../cfg/strided.cfg ]; then
+        echo "Downloading strided.cfg."
+        wget -O ../cfg/strided.cfg https://github.com/pjreddie/darknet/blob/master/cfg/strided.cfg
+    else
+        echo "strided.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/strided.weights ]; then
+    	echo "Downloading strided.weights"
+    	wget -O ../weights/strided.weights http://pjreddie.com/media/files/strided.weights
+    else
+    	echo "strided.weights is already present in ../weights"
+    fi
+
+elif [ "$1" == "all" ]; then
+	# Download yolo.weights
+	if [ ! -f ../weights/yolo.weights ]; then
+        echo "Downloading yolo.weights."
+        wget -O ../weights/yolo.weights http://pjreddie.com/media/files/yolo.weights
+    else
+        echo "yolo.weights is already present in ../weights"
+    fi
+    # Download tiny-yolo.weights
+	if [ ! -f ../weights/tiny-yolo.weights ]; then
+        echo "Downloading tiny-yolo.weights."
+        wget -O ../weights/tiny-yolo.weights http://pjreddie.com/media/files/tiny-yolo.weights
+    else
+        echo "tiny-yolo.weights is already present in ../weights"
+    fi
+    # Download yolo.rescore.weights
+    if [ ! -f ../weights/yolo.rescore.weights ]; then
+        echo "Downloading yolo.rescore.weights."
+        wget -O ../weights/yolo.rescore.weights http://pjreddie.com/media/files/yolo.rescore.weights
+    else
+        echo "yolo.rescore.weights is already present in ../weights"
+    fi
+    # Extraction Convolution
+    if [ ! -f ../weights/extraction.conv.weights ]; then
+        echo "Downloading extraction.conv.weights."
+        wget -O ../weights/extraction.conv.weights http://pjreddie.com/media/files/extraction.conv.weights
+    else
+        echo "extraction.conv.weights is already present in ../weights"
+    fi
+    # Darknet Convolution
+    if [ ! -f ../weights/darknet.conv.weights ]; then
+        echo "Downloading darknet.conv.weights."
+        wget -O ../weights/darknet.conv.weights http://pjreddie.com/media/files/darknet.conv.weights
+    else
+        echo "darknet.conv.weights is already present in ../weights"
+    fi
+    # AlexNet
+    if [ ! -f ../cfg/alexnet.cfg ]; then
+        echo "Downloading alexnet.cfg."
+        wget -O ../cfg/alexnet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/alexnet.cfg
+    else
+        echo "alexnet.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/alexnet.weights ]; then
+    	echo "Downloading alexnet.weights"
+    	wget -O ../weights/alexnet.weights http://pjreddie.com/media/files/alexnet.weights
+    else
+    	echo "alexnet.weights is already present in ../weights"
+    fi
+    # Darknet reference model
+    if [ ! -f ../cfg/darknet.cfg ]; then
+        echo "Downloading darknet.cfg."
+        wget -O ../cfg/darknet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/darknet.cfg
+    else
+        echo "darknet.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/darknet.weights ]; then
+    	echo "Downloading darknet.weights"
+    	wget -O ../weights/darknet.weights http://pjreddie.com/media/files/darknet.weights
+    else
+    	echo "darknet.weights is already present in ../weights"
+    fi
+    # VGG-16
+    if [ ! -f ../cfg/vgg-16.cfg ]; then
+        echo "Downloading vgg-16.cfg."
+        wget -O ../cfg/vgg-16.cfg https://github.com/pjreddie/darknet/blob/master/cfg/vgg-16.cfg
+    else
+        echo "vgg-16.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/vgg-16.weights ]; then
+    	echo "Downloading vgg-16.weights"
+    	wget -O ../weights/vgg-16.weights http://pjreddie.com/media/files/vgg-16.weights
+    else
+    	echo "vgg-16.weights is already present in ../weights"
+    fi
+    # Extraction
+    if [ ! -f ../cfg/extraction.cfg ]; then
+        echo "Downloading extraction.cfg."
+        wget -O ../cfg/extraction.cfg https://github.com/pjreddie/darknet/blob/master/cfg/extraction.cfg
+    else
+        echo "extraction.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/extraction.weights ]; then
+    	echo "Downloading extraction.weights"
+    	wget -O ../weights/extraction.weights http://pjreddie.com/media/files/extraction.weights
+    else
+    	echo "extraction.weights is already present in ../weights"
+    fi
+    # Strided
+    if [ ! -f ../cfg/strided.cfg ]; then
+        echo "Downloading strided.cfg."
+        wget -O ../cfg/strided.cfg https://github.com/pjreddie/darknet/blob/master/cfg/strided.cfg
+    else
+        echo "strided.cfg is already present in ../cfg"
+    fi
+    if [! -f ../weights/strided.weights ]; then
+    	echo "Downloading strided.weights"
+    	wget -O ../weights/strided.weights http://pjreddie.com/media/files/strided.weights
+    else
+    	echo "strided.weights is already present in ../weights"
+    fi
+else
+    echo "No weight file provided!!"
+fi
