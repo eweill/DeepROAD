@@ -175,7 +175,7 @@ elif [ "$1" == "all" ]; then
     else
         echo "alexnet.cfg is already present in ../cfg"
     fi
-    if [! -f ../weights/alexnet.weights ]; then
+    if [ ! -f ../weights/alexnet.weights ]; then
     	echo "Downloading alexnet.weights"
     	wget -O ../weights/alexnet.weights http://pjreddie.com/media/files/alexnet.weights
     else
@@ -188,7 +188,7 @@ elif [ "$1" == "all" ]; then
     else
         echo "darknet.cfg is already present in ../cfg"
     fi
-    if [! -f ../weights/darknet.weights ]; then
+    if [ ! -f ../weights/darknet.weights ]; then
     	echo "Downloading darknet.weights"
     	wget -O ../weights/darknet.weights http://pjreddie.com/media/files/darknet.weights
     else
@@ -201,7 +201,7 @@ elif [ "$1" == "all" ]; then
     else
         echo "vgg-16.cfg is already present in ../cfg"
     fi
-    if [! -f ../weights/vgg-16.weights ]; then
+    if [ ! -f ../weights/vgg-16.weights ]; then
     	echo "Downloading vgg-16.weights"
     	wget -O ../weights/vgg-16.weights http://pjreddie.com/media/files/vgg-16.weights
     else
@@ -214,7 +214,7 @@ elif [ "$1" == "all" ]; then
     else
         echo "extraction.cfg is already present in ../cfg"
     fi
-    if [! -f ../weights/extraction.weights ]; then
+    if [ ! -f ../weights/extraction.weights ]; then
     	echo "Downloading extraction.weights"
     	wget -O ../weights/extraction.weights http://pjreddie.com/media/files/extraction.weights
     else
@@ -227,7 +227,7 @@ elif [ "$1" == "all" ]; then
     else
         echo "strided.cfg is already present in ../cfg"
     fi
-    if [! -f ../weights/strided.weights ]; then
+    if [ ! -f ../weights/strided.weights ]; then
     	echo "Downloading strided.weights"
     	wget -O ../weights/strided.weights http://pjreddie.com/media/files/strided.weights
     else
