@@ -44,9 +44,9 @@ LDFLAGS+= -L/software/cuda-toolkit/7.5.18/lib64 -lcuda -lcudart -lcublas -lcuran
 endif
 
 ifeq ($(CUDNN), 1)
-COMMON+= -DCUDNN -I/scratch2/${USER}/DeepROAD/CUDAv7.5_cuDNNv5.1/include/
+COMMON+= -DCUDNN -I/scratch2/${USER}/DeepROAD/cuDNNv5.1_CUDAv7.5/include/
 CFLAGS+= -DCUDNN
-LDFLAGS+= -L/scratch2/${USER}/DeepROAD/CUDAv7.5_cuDNNv5.1/lib64/ -lcudnn
+LDFLAGS+= -L/scratch2/${USER}/DeepROAD/cuDNNv5.1_CUDAv7.5/lib64/ -lcudnn
 endif
 
 OBJ=gemm.o utils.o cuda.o deconvolutional_layer.o convolutional_layer.o list.o image.o activations.o im2col.o col2im.o blas.o crop_layer.o dropout_layer.o maxpool_layer.o softmax_layer.o data.o matrix.o network.o connected_layer.o cost_layer.o parser.o option_list.o darknet.o detection_layer.o captcha.o route_layer.o writing.o box.o nightmare.o normalization_layer.o avgpool_layer.o coco.o dice.o yolo.o detector.o layer.o compare.o classifier.o local_layer.o swag.o shortcut_layer.o activation_layer.o rnn_layer.o gru_layer.o rnn.o rnn_vid.o crnn_layer.o demo.o tag.o cifar.o go.o batchnorm_layer.o art.o region_layer.o reorg_layer.o super.o voxel.o
