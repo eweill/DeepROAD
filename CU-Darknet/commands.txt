@@ -1,6 +1,7 @@
 
 # train on VOC_2007 in Jesse absolute file path
   ./darknet yolo train cfg/yolo.train.cfg
+  ./darknet yolo train cfg/yolo.train.cfg
 
 # test yolo on image (default threshold is .2)
   ./darknet yolo test cfg/yolo.cfg weights/yolo.weights data/dog.jpg
