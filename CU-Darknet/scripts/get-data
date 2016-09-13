@@ -4,10 +4,10 @@ DIR="/scratch2/${USER}/DeepROAD/CU-Darknet"
 
 if [ -d ${DIR}/weights ]; then
     echo "Weights directory already exists"
-    echo "Placing all weights in ../weights"
+    echo "Placing all weights in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
 else
     echo "Making directory ../weights"
-    echo "Placing all weights in ../weights"
+    echo "Placing all weights in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     mkdir -p ${DIR}/weights
 fi
 
@@ -29,7 +29,7 @@ elif [ "$1" == "yolo" ]; then
         echo "Downloading yolo.weights."
         wget -O ${DIR}/weights/yolo.weights http://pjreddie.com/media/files/yolo.weights
     else
-        echo "yolo.weights is already present in ../weights"
+        echo "yolo.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "tiny-yolo" ]; then
@@ -37,7 +37,7 @@ elif [ "$1" == "tiny-yolo" ]; then
         echo "Downloading tiny-yolo.weights."
         wget -O ${DIR}/weights/tiny-yolo.weights http://pjreddie.com/media/files/tiny-yolo.weights
     else
-        echo "tiny-yolo.weights is already present in ../weights"
+        echo "tiny-yolo.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "yolo-rescore" ]; then
@@ -45,7 +45,7 @@ elif [ "$1" == "yolo-rescore" ]; then
         echo "Downloading yolo.rescore.weights."
         wget -O ${DIR}/weights/yolo.rescore.weights http://pjreddie.com/media/files/yolo.rescore.weights
     else
-        echo "yolo.rescore.weights is already present in ../weights"
+        echo "yolo.rescore.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "extraction-conv" ]; then
@@ -53,7 +53,7 @@ elif [ "$1" == "extraction-conv" ]; then
         echo "Downloading extraction.conv.weights."
         wget -O ${DIR}/weights/extraction.conv.weights http://pjreddie.com/media/files/extraction.conv.weights
     else
-        echo "extraction.conv.weights is already present in ../weights"
+        echo "extraction.conv.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "darknet-conv" ]; then
@@ -61,7 +61,7 @@ elif [ "$1" == "darknet-conv" ]; then
         echo "Downloading darknet.conv.weights."
         wget -O ${DIR}/weights/darknet.conv.weights http://pjreddie.com/media/files/darknet.conv.weights
     else
-        echo "darknet.conv.weights is already present in ../weights"
+        echo "darknet.conv.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "alexnet" ]; then
@@ -69,13 +69,13 @@ elif [ "$1" == "alexnet" ]; then
         echo "Downloading alexnet.cfg."
         wget -O ${DIR}/cfg/alexnet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/alexnet.cfg
     else
-        echo "alexnet.cfg is already present in ../cfg"
+        echo "alexnet.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [! -f ${DIR}/weights/alexnet.weights ]; then
     	echo "Downloading alexnet.weights"
     	wget -O ${DIR}/weights/alexnet.weights http://pjreddie.com/media/files/alexnet.weights
     else
-    	echo "alexnet.weights is already present in ../weights"
+    	echo "alexnet.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "darknet-ref" ]; then
@@ -83,13 +83,13 @@ elif [ "$1" == "darknet-ref" ]; then
         echo "Downloading darknet.cfg."
         wget -O ${DIR}/cfg/darknet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/darknet.cfg
     else
-        echo "darknet.cfg is already present in ../cfg"
+        echo "darknet.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [! -f ../weights/darknet.weights ]; then
     	echo "Downloading darknet.weights"
     	wget -O ${DIR}/weights/darknet.weights http://pjreddie.com/media/files/darknet.weights
     else
-    	echo "darknet.weights is already present in ../weights"
+    	echo "darknet.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "vgg16" ]; then
@@ -97,13 +97,13 @@ elif [ "$1" == "vgg16" ]; then
         echo "Downloading vgg-16.cfg."
         wget -O ${DIR}/cfg/vgg-16.cfg https://github.com/pjreddie/darknet/blob/master/cfg/vgg-16.cfg
     else
-        echo "vgg-16.cfg is already present in ../cfg"
+        echo "vgg-16.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [! -f ${DIR}/weights/vgg-16.weights ]; then
     	echo "Downloading vgg-16.weights"
     	wget -O ${DIR}/weights/vgg-16.weights http://pjreddie.com/media/files/vgg-16.weights
     else
-    	echo "vgg-16.weights is already present in ../weights"
+    	echo "vgg-16.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "extraction" ]; then
@@ -111,13 +111,13 @@ elif [ "$1" == "extraction" ]; then
         echo "Downloading extraction.cfg."
         wget -O ${DIR}/cfg/extraction.cfg https://github.com/pjreddie/darknet/blob/master/cfg/extraction.cfg
     else
-        echo "extraction.cfg is already present in ../cfg"
+        echo "extraction.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [! -f ${DIR}/weights/extraction.weights ]; then
     	echo "Downloading extraction.weights"
     	wget -O ${DIR}/weights/extraction.weights http://pjreddie.com/media/files/extraction.weights
     else
-    	echo "extraction.weights is already present in ../weights"
+    	echo "extraction.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "strided" ]; then
@@ -125,13 +125,13 @@ elif [ "$1" == "strided" ]; then
         echo "Downloading strided.cfg."
         wget -O ${DIR}/cfg/strided.cfg https://github.com/pjreddie/darknet/blob/master/cfg/strided.cfg
     else
-        echo "strided.cfg is already present in ../cfg"
+        echo "strided.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [! -f ${DIR}/weights/strided.weights ]; then
     	echo "Downloading strided.weights"
     	wget -O ${DIR}/weights/strided.weights http://pjreddie.com/media/files/strided.weights
     else
-    	echo "strided.weights is already present in ../weights"
+    	echo "strided.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "yolo-coco" ]; then
@@ -139,7 +139,7 @@ elif [ "$1" == "yolo-coco" ]; then
         echo "Downloading tiny-coco.weights"
         wget -O ${DIR}/weights/tiny-coco.weights http://pjreddie.com/media/files/tiny-coco.weights
     else
-        echo "strided.weights is already present in ../weights"
+        echo "tiny-coco.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 
 elif [ "$1" == "all" ]; then
@@ -148,107 +148,107 @@ elif [ "$1" == "all" ]; then
         echo "Downloading yolo.weights."
         wget -O ${DIR}/weights/yolo.weights http://pjreddie.com/media/files/yolo.weights
     else
-        echo "yolo.weights is already present in ../weights"
+        echo "yolo.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # Download tiny-yolo.weights
 	if [ ! -f ${DIR}/weights/tiny-yolo.weights ]; then
         echo "Downloading tiny-yolo.weights."
         wget -O ${DIR}/weights/tiny-yolo.weights http://pjreddie.com/media/files/tiny-yolo.weights
     else
-        echo "tiny-yolo.weights is already present in ../weights"
+        echo "tiny-yolo.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # Download yolo.rescore.weights
     if [ ! -f ${DIR}/weights/yolo.rescore.weights ]; then
         echo "Downloading yolo.rescore.weights."
         wget -O ${DIR}/weights/yolo.rescore.weights http://pjreddie.com/media/files/yolo.rescore.weights
     else
-        echo "yolo.rescore.weights is already present in ../weights"
+        echo "yolo.rescore.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # Extraction Convolution
     if [ ! -f ${DIR}/weights/extraction.conv.weights ]; then
         echo "Downloading extraction.conv.weights."
         wget -O ${DIR}/weights/extraction.conv.weights http://pjreddie.com/media/files/extraction.conv.weights
     else
-        echo "extraction.conv.weights is already present in ../weights"
+        echo "extraction.conv.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # Darknet Convolution
     if [ ! -f ${DIR}/weights/darknet.conv.weights ]; then
         echo "Downloading darknet.conv.weights."
         wget -O ${DIR}/weights/darknet.conv.weights http://pjreddie.com/media/files/darknet.conv.weights
     else
-        echo "darknet.conv.weights is already present in ../weights"
+        echo "darknet.conv.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # AlexNet
     if [ ! -f ${DIR}/cfg/alexnet.cfg ]; then
         echo "Downloading alexnet.cfg."
         wget -O ${DIR}/cfg/alexnet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/alexnet.cfg
     else
-        echo "alexnet.cfg is already present in ../cfg"
+        echo "alexnet.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [ ! -f ${DIR}/weights/alexnet.weights ]; then
     	echo "Downloading alexnet.weights"
     	wget -O ${DIR}/weights/alexnet.weights http://pjreddie.com/media/files/alexnet.weights
     else
-    	echo "alexnet.weights is already present in ../weights"
+    	echo "alexnet.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # Darknet reference model
     if [ ! -f ${DIR}/cfg/darknet.cfg ]; then
         echo "Downloading darknet.cfg."
         wget -O ${DIR}/cfg/darknet.cfg https://github.com/pjreddie/darknet/blob/master/cfg/darknet.cfg
     else
-        echo "darknet.cfg is already present in ../cfg"
+        echo "darknet.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [ ! -f ${DIR}/weights/darknet.weights ]; then
     	echo "Downloading darknet.weights"
     	wget -O ${DIR}/weights/darknet.weights http://pjreddie.com/media/files/darknet.weights
     else
-    	echo "darknet.weights is already present in ../weights"
+    	echo "darknet.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # VGG-16
     if [ ! -f ${DIR}/cfg/vgg-16.cfg ]; then
         echo "Downloading vgg-16.cfg."
         wget -O ${DIR}/cfg/vgg-16.cfg https://github.com/pjreddie/darknet/blob/master/cfg/vgg-16.cfg
     else
-        echo "vgg-16.cfg is already present in ../cfg"
+        echo "vgg-16.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [ ! -f ${DIR}/weights/vgg-16.weights ]; then
     	echo "Downloading vgg-16.weights"
     	wget -O ${DIR}/weights/vgg-16.weights http://pjreddie.com/media/files/vgg-16.weights
     else
-    	echo "vgg-16.weights is already present in ../weights"
+    	echo "vgg-16.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # Extraction
     if [ ! -f ${DIR}/cfg/extraction.cfg ]; then
         echo "Downloading extraction.cfg."
         wget -O ${DIR}/cfg/extraction.cfg https://github.com/pjreddie/darknet/blob/master/cfg/extraction.cfg
     else
-        echo "extraction.cfg is already present in ../cfg"
+        echo "extraction.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [ ! -f ${DIR}/weights/extraction.weights ]; then
     	echo "Downloading extraction.weights"
     	wget -O ${DIR}/weights/extraction.weights http://pjreddie.com/media/files/extraction.weights
     else
-    	echo "extraction.weights is already present in ../weights"
+    	echo "extraction.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # Strided
     if [ ! -f ${DIR}/cfg/strided.cfg ]; then
         echo "Downloading strided.cfg."
         wget -O ${DIR}/cfg/strided.cfg https://github.com/pjreddie/darknet/blob/master/cfg/strided.cfg
     else
-        echo "strided.cfg is already present in ../cfg"
+        echo "strided.cfg is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/cfg"
     fi
     if [ ! -f ${DIR}/weights/strided.weights ]; then
     	echo "Downloading strided.weights"
     	wget -O ${DIR}/weights/strided.weights http://pjreddie.com/media/files/strided.weights
     else
-    	echo "strided.weights is already present in ../weights"
+    	echo "strided.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # YOLO + COCO
     if [! -f ${DIR}/weights/tiny-coco.weights ]; then
         echo "Downloading tiny-coco.weights"
         wget -O ${DIR}/weights/tiny-coco.weights http://pjreddie.com/media/files/tiny-coco.weights
     else
-        echo "strided.weights is already present in ../weights"
+        echo "tiny-cocoweights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
 else
     echo "No weight file provided!!"
