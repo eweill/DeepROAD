@@ -245,7 +245,7 @@ elif [ "$1" == "all" ]; then
     	echo "strided.weights is already present in /scratch2/${USER}/DeepROAD/CU-Darknet/weights"
     fi
     # YOLO + COCO
-    if [! -f ${DIR}/weights/tiny-coco.weights ]; then
+    if [ ! -f ${DIR}/weights/tiny-coco.weights ]; then
         echo "Downloading tiny-coco.weights"
         wget -O ${DIR}/weights/tiny-coco.weights http://pjreddie.com/media/files/tiny-coco.weights
     else
