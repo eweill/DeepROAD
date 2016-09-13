@@ -7,3 +7,15 @@ Please follow the instructions on [Install Darknet on Palmetto](https://github.c
 
 ## Downloading weights and configuration files
 
+Simply run the `get-data` script to retrieve weights and configuration as follows
+
+	# To get a list of all weights possible to download
+	/scratch2/${USER}/DeepROAD/CU-Darknet/scripts/get-data help
+
+	# To download a single set of weights (and/or configuration) [vgg-16 for example]
+	/scratch2/${USER}/DeepROAD/CU-Darknet/scripts/get-data vgg16
+
+	# To go ahead and download all weights and configurations
+	/scratch2/${USER}/DeepROAD/CU-Darknet/scripts/get-data all
+
+This script will check the `weights` and `cfg` directories to make sure not to overwrite any files already located in those directories.
