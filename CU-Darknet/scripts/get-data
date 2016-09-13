@@ -22,6 +22,7 @@ if [ "$1" == "help" ] || [ "$1" == '-h' ] || [ "$1" == "" ]; then
     echo "    vgg16: Download VGG-16 configuration and weights."
     echo "    extraction: Dwonload extraction configuration and weights."
     echo "    strided: Download strided configuration and weight."
+    echo "    yolo-coco: Download the yolo+coco weights."
     echo "    all: Downloads all models and weights that haven't been downloaded."
 
 elif [ "$1" == "yolo" ]; then
