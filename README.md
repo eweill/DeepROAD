@@ -42,3 +42,9 @@ Once all modules have been added successfully, we can now make the darknet insta
 	# Run the `make` command to create all object files (modify as needed)
 	make
 
+If there are no errors, it should have compiled correctly. Now try running darknet.
+	
+	./darknet
+
+	# This is the output that will appear if installed correctly:
+	usage: ./darknet <function>
