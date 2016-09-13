@@ -1,11 +1,11 @@
 # DeepROAD
 This project houses all scripts and code necessary for use of the DeepROAD Suite (in development).
 
-## Install YOLO on Palmetto
+## Install Darknet on Palmetto
 
-First, change directories to scratch in order to clone the DeepROAD repository into the correct location.
+First, change directories to scratch2 in order to clone the DeepROAD repository into the correct location.
 
-	# Change directory to /scratch/<your-username>
+	# Change directory to /scratch2/<your-username>
 	cd /scratch2/${USER}
 
 Once you are in the /scratch2 directory for your user, clone the entire DeepROAD repository.
@@ -41,3 +41,4 @@ Once all modules have been added successfully, we can now make the darknet insta
 
 	# Run the `make` command to create all object files (modify as needed)
 	make
+
