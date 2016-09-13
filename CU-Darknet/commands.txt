@@ -1,0 +1,2 @@
+# train on VOC_2007 in Jesse absolute file path
+./darknet yolo train cfg/yolo.train.cfg

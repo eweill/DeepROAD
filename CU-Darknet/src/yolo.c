@@ -15,8 +15,8 @@ image voc_labels[20];
 
 void train_yolo(char *cfgfile, char *weightfile)
 {
-    char *train_images = "/data/voc/train.txt";
-    char *backup_directory = "/home/pjreddie/backup/";
+    char *train_images = "/scratch2/jtetrea/DeepROAD/CU-Darknet/data/voc/2007_train.txt";
+    char *backup_directory = "/scratch2/jtetrea/weight_backup/";
     srand(time(0));
     data_seed = time(0);
     char *base = basecfg(cfgfile);
@@ -178,7 +178,7 @@ void validate_yolo(char *cfgfile, char *weightfile)
     int nms = 1;
     float iou_thresh = .5;
 
-    int nthreads = 8;
+    int nthreads = 2;
     image *val = calloc(nthreads, sizeof(image));
     image *val_resized = calloc(nthreads, sizeof(image));
     image *buf = calloc(nthreads, sizeof(image));
@@ -328,7 +328,7 @@ void test_yolo(char *cfgfile, char *weightfile, char *filename, float thresh)
     char buff[256];
     char *input = buff;
     int j;
-    float nms=.4;
+    float nms=.5;
     box *boxes = calloc(l.side*l.side*l.n, sizeof(box));
     float **probs = calloc(l.side*l.side*l.n, sizeof(float *));
     for(j = 0; j < l.side*l.side*l.n; ++j) probs[j] = calloc(l.classes, sizeof(float *));
@@ -355,6 +355,7 @@ void test_yolo(char *cfgfile, char *weightfile, char *filename, float thresh)
         save_image(im, "predictions");
         show_image(im, "predictions");
 
+        show_image(sized, "resized");
         free_image(im);
         free_image(sized);
 #ifdef OPENCV
