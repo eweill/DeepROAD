@@ -1,43 +1,46 @@
 # Install Darknet on Palmetto
 
-First, change directories to scratch2 in order to clone the DeepROAD repository into the correct location.  Clone the entire DeepROAD repository.  Change directory to scripts folder inside DeepROAD repository.
+Clone the entire DeepROAD repository into your scratch2 directory on Palmetto.  This includes all the necessary scripts to start using Darknet, including a local cuDNN installation.
 
-	# Change directory to /scratch2/<your-username>
-	cd /scratch2/${USER}
+	# Clone DeepROAD to scratch2
+	git clone https://github.com/eweill/DeepROAD.git /scratch2/${USER}/DeepROAD
 
-	# Clone repo into /scratch2/<your-username>
-	git clone https://github.com/eweill/DeepROAD.git
+Next we need to create an interactive job on a node with a GPGPU (in this case a K40).
+
+	# Create interactive session with provided script (modifiable if necessary).
+	/scratch2/${USER}/DeepROAD/scripts/getGPUNode
+
+After successfully invoking an interactive session on Palmetto, set up the proper paths and environment variables for YOLO (including CUDA, OpenCV, FFMPEG, and more).  The `yolo` script inside the cloned repository will set up all path variables and environment variables
 	
-	# Move to directory to invoke interactive node on Palmetto
-	cd /scratch2/${USER}/DeepROAD/scripts
-
-In this directory, there are 3 executable scripts.  `getGPUNode` is the script to run to invoke an interactive node on Palmetto with a K40 as the accelerator.
-
-	# Invoke the getGPUNode scripts to get an interactive session
-	./getGPUNode
-
-After logging onto a node with a K40 GPGPU, we need to change directories again to where Darknet is installed.  Go back into the scripts folder and source the `yolo` script which will add all the necessary modules to your interactive session (including CUDA, OpenCV, FFMPEG, and more).  Then invoke the command `module list` to make sure all modules were added successfully.
-	
-	# Change directories to darknet repo
-	cd /scratch2/${USER}/DeepROAD/scripts
-
-	# Source the yolo file to set modules
-	source yolo
-
-	# Check the modules that were loaded
+	# Make sure there are no loaded modules
 	module list
+	### Should return 'No Modulefiles Currently Loaded.'
 
-Once all modules have been added successfully, we can now make the darknet installation.  Change directories into the darknet location and then run `make` in the directory which will create all object files needed.  This Makefile defaults to using CUDA and cuDNN, however not using OpenCV.  If you would like to use OpenCV, simply modify the Makefile to read `OPENCV=1` instead of 0.  Conversly, to use CPU only (no-gpu), simply change the CUDA and CUDNN flags to 0.
+	# Source the `yolo` script to set all env and path variables.
+	source /scratch2/eweill/DeepROAD/scripts/yolo
 
-	# Change directories to darknet installation
-	cd /scratch2/${USER}/DeepROAD/CU-Darknet
+	# See that all modules are loaded correctly
+	module list
+	### Should return the following
+	###   1) gmp/4.3.2     3) mpc/0.8.1    5) anaconda3/4.0.0       7) opencv/2.4.9
+	###   2) mpfr/2.4.2    4) gcc/4.8.1    6)cuda-toolkit/7.5.18    8) ffmpeg/2.4
 
-	# Run the `make` command to create all object files (modify as needed)
-	make
+Note that the list of modules may appear in a different order.  As long as they are all present, the installation and invokation should work fine.
 
-If there are no errors, it should have compiled correctly. Now try running darknet.
+We can now start to build darknet (with the provided modified Makefile).  We want to `make` CU-Darknet so that all object files and dependencies are built successfully.  The Makefile defaults to using CUDa and cuDNN, however, not using OpenCV.  If you would like to use OpenCV, simply modify the Makefile to read `OPENCV=1` instead of 0.  Conversely, to use the CPU-only (no-gpu) version of darknet either change the CUDA and CUDNN flags to 0 or compile with them set to 1 and use the -nogpu flag with executing ./darknet.
 	
+	# Make the darknet executable and other object files need
+	cd /scratch2/${USER}/DeepROAD/CU-Darknet; make; cd -
+
+If there are no errors, it should have compiled correctly.  Now try running darknet.
+
+	# If you are in the directory with the executable
 	./darknet
+
+	# If you are in a directory without the executable
+	/scratch2/${USER}/DeepROAD/CU-Darknet/darknet
 
 	# This is the output that will appear if installed correctly:
 	usage: ./darknet <function>
+	OR
+	usage: /scratch2/${USER}/DeepROAD/CU-Darknet/darknet <function>
