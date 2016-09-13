@@ -3,17 +3,13 @@ This project houses all scripts and code necessary for use of the DeepROAD Suite
 
 ## Install Darknet on Palmetto
 
-First, change directories to scratch2 in order to clone the DeepROAD repository into the correct location.
+First, change directories to scratch2 in order to clone the DeepROAD repository into the correct location.  Clone the entire DeepROAD repository.  Change directory to scripts folder inside DeepROAD repository.
 
 	# Change directory to /scratch2/<your-username>
 	cd /scratch2/${USER}
 
-Once you are in the /scratch2 directory for your user, clone the entire DeepROAD repository.
-
 	# Clone repo into /scratch2/<your-username>
 	git clone https://github.com/eweill/DeepROAD.git
-
-Move to the scripts folder located inside the DeepROAD directory.
 	
 	# Move to directory to invoke interactive node on Palmetto
 	cd /scratch2/${USER}/DeepROAD/scripts
