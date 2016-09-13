@@ -134,6 +134,14 @@ elif [ "$1" == "strided" ]; then
     	echo "strided.weights is already present in ../weights"
     fi
 
+elif [ "$1" == "yolo-coco" ]; then
+    if [! -f ${DIR}/weights/tiny-coco.weights ]; then
+        echo "Downloading tiny-coco.weights"
+        wget -O ${DIR}/weights/tiny-coco.weights http://pjreddie.com/media/files/tiny-coco.weights
+    else
+        echo "strided.weights is already present in ../weights"
+    fi
+
 elif [ "$1" == "all" ]; then
 	# Download yolo.weights
 	if [ ! -f ${DIR}/weights/yolo.weights ]; then
@@ -234,6 +242,13 @@ elif [ "$1" == "all" ]; then
     	wget -O ${DIR}/weights/strided.weights http://pjreddie.com/media/files/strided.weights
     else
     	echo "strided.weights is already present in ../weights"
+    fi
+    # YOLO + COCO
+    if [! -f ${DIR}/weights/tiny-coco.weights ]; then
+        echo "Downloading tiny-coco.weights"
+        wget -O ${DIR}/weights/tiny-coco.weights http://pjreddie.com/media/files/tiny-coco.weights
+    else
+        echo "strided.weights is already present in ../weights"
     fi
 else
     echo "No weight file provided!!"
