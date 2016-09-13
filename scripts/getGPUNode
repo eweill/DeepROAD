@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ -z "$1" ]; then
     echo starting with walltime = 6 hours:
-    qsub -I -v -l select=1:ncpus=8:mem=10gb:ngpus=1:gpu_model=k40,walltime=6:00:00
+    qsub -I -v cores=8 -l select=1:ncpus=8:mem=10gb:ngpus=1:gpu_model=k40,walltime=6:00:00
 else
     echo starting with walltime = $1 hours:
-    qsub -I -v -l select=1:ncpus=8:mem=1-gb:ngpus=1:gpu_model=k40,walltime=$1:00:00
+    qsub -I -v cores=8 -l select=1:ncpus=8:mem=10gb:ngpus=1:gpu_model=k40,walltime=$1:00:00
 fi
