@@ -8,7 +8,7 @@ Clone the entire DeepROAD repository into your scratch2 directory on Palmetto.  
 Next we need to create an interactive job on a node with a GPGPU (in this case a K40).
 
 	# Create interactive session with provided script (modifiable if necessary).
-	/scratch2/${USER}/DeepROAD/scripts/getGPUNode
+	/scratch2/${USER}/DeepROAD/bin/k40
 
 After successfully invoking an interactive session on Palmetto, set up the proper paths and environment variables for YOLO (including CUDA, OpenCV, FFMPEG, and more).  The `yolo` script inside the cloned repository will set up all path variables and environment variables
 	
@@ -17,7 +17,7 @@ After successfully invoking an interactive session on Palmetto, set up the prope
 	### Should return 'No Modulefiles Currently Loaded.'
 
 	# Source the `yolo` script to set all env and path variables.
-	source /scratch2/eweill/DeepROAD/scripts/yolo
+	source /scratch2/eweill/DeepROAD/bin/setEnv palmetto
 
 	# See that all modules are loaded correctly
 	module list
@@ -29,8 +29,9 @@ Note that the list of modules may appear in a different order.  As long as they 
 
 We can now start to build darknet (with the provided modified Makefile).  We want to `make` CU-Darknet so that all object files and dependencies are built successfully.  The Makefile defaults to using CUDa and cuDNN, however, not using OpenCV.  If you would like to use OpenCV, simply modify the Makefile to read `OPENCV=1` instead of 0.  Conversely, to use the CPU-only (no-gpu) version of darknet either change the CUDA and CUDNN flags to 0 or compile with them set to 1 and use the -nogpu flag with executing ./darknet.
 	
-	# Make the darknet executable and other object files need
-	cd /scratch2/${USER}/DeepROAD/CU-Darknet; make; cd -
+	# Copy the Palmetto Makefile, make the darknet executable and other object files need,
+	and return to original directory.
+	cd /scratch2/${USER}/DeepROAD/CU-Darknet; cp Makefile.palmetto Makefile; make; cd -
 
 If there are no errors, it should have compiled correctly.  Now try running darknet.
 

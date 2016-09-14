@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$1" == "palmetto" ]; then
+	print "Setting all modules and environment variables for Palmetto."
+	# Modules
+	module purge
+	module add gcc/4.8.1
+	module add anaconda3/4.0.0
+	module add cuda-toolkit/7.5.18
+	module add opencv/2.4.9
+	module add ffmpeg/2.4
+
+	# Export environment variables
+	DEEP_ROAD=/scratch2/${USER}/DeepROAD
+	export PATH=${PATH}:${DEEP_ROAD}/cuDNNv5.1_CUDAv7.5/include/:${DEEP_ROAD}/bin/
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${DEEP_ROAD}/cuDNNv5.1_CUDAv7.5/lib64/	
+elif [ "$1" == "jetson" ]; then
+
+fi
