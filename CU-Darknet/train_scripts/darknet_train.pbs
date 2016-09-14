@@ -1,9 +1,11 @@
 #!/bin/bash
-#PBS -N darknet_train
+#PBS -N train_darknet
 #PBS -l select=1:ncpus=8:ngpus=1:mem=16gb:gpu_model=k40
 #PBS -l walltime=2:00:00
+#PBS -e /dev/null
+#PBS -o /dev/null
 
 cd /scratch2/${USER}/DeepROAD/CU-Darknet/
 source ../scripts/yolo
 
-./darknet yolo train cfg/yolo.train.cfg
+./darknet yolo train cfg/yolo.train.cfg &> log.txt

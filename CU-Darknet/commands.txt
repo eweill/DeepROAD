@@ -1,9 +1,13 @@
 
-# train on VOC_2007 in Jesse absolute file path
-  ./darknet yolo train cfg/yolo.train.cfg
+# train on VOC_2007 in jtetrea absolute file path
   ./darknet yolo train cfg/yolo.train.cfg
 
 # test yolo on image (default threshold is .2)
-  ./darknet yolo test cfg/yolo.cfg weights/yolo.weights data/dog.jpg
-  ./darknet yolo test cfg/yolo.cfg weights/yolo.weights data/dog.jpg -thresh 0
+  ./darknet yolo test cfg/yolo.cfg weights/yolo.weights data/dog.jpg-thresh 0
+
+# classifier example
+  ./darknet classifier predict cfg/imagenet1k.dataset cfg/extraction.cfg extraction.weights data/dog.jpg
+
+# validate on imagenet file harcoded (not necessarily generated yet) in data folder
+  ./darknet classifier valid cfg/imagenet1k.dataset cfg/extraction.cfg extraction.weights
 
