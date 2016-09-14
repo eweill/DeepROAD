@@ -1062,11 +1062,24 @@ void demo_classifier(char *datacfg, char *cfgfile, char *weightfile, int cam_ind
     }
 #endif
 }
+void print_help_dialog_classifier()
+{
+    printf("\n========================================");
+    printf("\n         CLASSIFIER OPTIONS");
+    printf("\n========================================\n\n");
 
+    printf("----------------------------------------");
+    printf("\npredict   try        train   trainm");
+    printf("\ndemo      threat     test    label");
+    printf("\nvalid     validmulti valid10 validcrop");
+    printf("\nvalidfull\n");
+    printf("----------------------------------------\n\n");
+}
 
 void run_classifier(int argc, char **argv)
 {
     if(argc < 4){
+        print_help_dialog_classifier();
         fprintf(stderr, "usage: %s %s [train/test/valid] [cfg] [weights (optional)]\n", argv[0], argv[1]);
         return;
     }

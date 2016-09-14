@@ -366,102 +366,20 @@ void test_yolo(char *cfgfile, char *weightfile, char *filename, float thresh)
     }
 }
 
-void print_help_dialog()
+void print_help_dialog_yolo()
 {
-    printf("\n========================\n");
-    printf("\n   YOLO HELP \n");
-    printf("\n inspired by: cvjena \n");
-    printf("\n========================\n");
+    printf("\n========================================");
+    printf("\n             YOLO OPTIONS");
+    printf("\n========================================\n\n");
 
-    printf("\n---------------------------\n");
-    printf("General command layout: \n");
-    printf("---------------------------\n\n");
-    printf(".darknet yolo [mode (train/test/valid/...)] [cfg] [weights (optional)] [further arguments (optional)]\n");
-
-    printf("\n---------------------------\n");
-    printf("Possible modes: \n");
-    printf("---------------------------\n\n");
-    printf("test \n");
-    printf("    -> detect on single image or interactively given filenames (run yolo in test state) \n\n");
-    printf("test_on_filelist \n");
-    printf("    -> detect in all images named in a filelist (run yolo in test state) \n\n");
-    printf("train \n");
-    printf("    -> run yolo in train state to estimate model parameters \n\n");
-    printf("valid \n");
-    printf("    ->  compute statistics regarding inference time (run yolo in test state) \n\n");
-    printf("recall \n");
-    printf("    ->  evaluate precision and recall for specified image list (run yolo in test state) \n\n");
-    printf("demo_cam \n");
-    printf("    -> detect in images from a usb cam (run yolo in test state) \n\n");
-    printf("demo_vid \n");
-    printf("    -> detect in a specified video (run yolo in test state) \n\n");
-    
-
-
-    printf("\n---------------------------\n");
-    printf("Optional parameters: \n");
-    printf("---------------------------\n\n");
-    printf("general settings \n");
-    printf("    -c_list_with_classnames  -- (./data/classnames_VOC.txt), file with names of possible categories. THEIR NUMBER SHOULD MATCH YOUR MODEL LAYOUT.   \n");
-    printf("\n");    
-    
-    printf("mode \"test\" \n");
-    printf("    -c_filename  -- (0), filename of image to be processed. Interactive mode if empty.  \n");	
-    printf("    -draw        -- (false), impaint results to image \n");
-    printf("    -write       -- (false), write results to file \n");
-    printf("    -dest        -- (./bboxes.txt), filename to write results into \n");
-    printf("    -nms         -- (0.5), threshold for non-maximum-suppresion \n");
-    printf("    -thresh      -- (0.2), only accept detections with confidence scores above that value \n");    
-    printf("\n");
-
-    printf("mode \"test_on_filelist\" \n");
-    printf("    -c_filelist  -- (0), name of list with image filenames (1 per line) \n");	
-    printf("    -draw        -- (false), impaint results to image \n");
-    printf("    -write       -- (false), write results to file \n");
-    printf("    -dest        -- (./bboxes.txt), filename to write results into \n");
-    printf("    -nms         -- (0.5), threshold for non-maximum-suppresion \n");
-    printf("    -thresh      -- (0.2), only accept detections with confidence scores above that value \n");    
-    printf("\n");
-
-    printf("mode \"train\" \n");
-    printf("    -c_fl_train   -- (./filelist_train.txt),  name of list with image filenames (1 per line) \n");
-    printf("    -c_dir_backup -- (./),  directory to store weight snapshots in \n");
-    printf("\n");
-
-    printf("mode \"valid\" \n");
-    printf("    nothing else \n");    
-    printf("\n");
-
-    printf("mode \"recall\" \n");
-    printf("    nothing else \n");        
-    printf("\n");
-
-    printf("mode \"demo_cam_pure_cuda\" \n");
-    printf("    -cam_idx     -- (0), index of camera port (for OpenCV) \n");
-    printf("    -thresh      -- (0.2), only accept detections with confidence scores above that value \n");    
-    printf("\n");
-
-    printf("mode \"demo_vid\" \n");
-    printf("    -c_filename  -- (0), filename to video (mp4 preferred) \n");
-    printf("    -thresh      -- (0.2), only accept detections with confidence scores above that value \n");
-    printf("\n");
-    
-    printf("mode \"demo_cam\" \n");
-    printf("    -cam_idx     -- (0), index of camera port (for OpenCV) \n");
-    printf("    -thresh      -- (0.2), only accept detections with confidence scores above that value \n");    
-    printf("    -frame_skip  -- (20), skip number of frames for slow machines \n");        
-    printf("\n");    
+    printf("----------------------------------------");
+    printf("\ntest   train   valid   recall");
+    printf("\ndemo\n");
+    printf("----------------------------------------\n\n");
 }
 
 void run_yolo(int argc, char **argv)
 {
-    // only print a helpin dialog?
-    if(0==strcmp(argv[2], "help"))
-    {
-    	print_help_dialog();
-        return;
-    } 
-
     int i;
     for(i = 0; i < 20; ++i){
         char buff[256];
@@ -473,6 +391,7 @@ void run_yolo(int argc, char **argv)
     int cam_index = find_int_arg(argc, argv, "-c", 0);
     int frame_skip = find_int_arg(argc, argv, "-s", 0);
     if(argc < 4){
+        print_help_dialog_yolo();
         fprintf(stderr, "usage: %s %s [train/test/valid] [cfg] [weights (optional)]\n", argv[0], argv[1]);
         return;
     }

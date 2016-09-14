@@ -336,12 +336,34 @@ void visualize(char *cfgfile, char *weightfile)
 #endif
 }
 
+void print_help_dialog_darknet()
+{
+    printf("\n========================================");
+    printf("\n           DARKNET OPTIONS");
+    printf("\n========================================\n\n");
+
+    printf("Run options:\n");
+    printf("----------------------------------------");
+    printf("\nvoxel   yolo       detector  coco");
+    printf("\nwriting captcha    nightmare dice");
+    printf("\ncompare classifier char_rnn  vid_rnn");
+    printf("\ntag     cifar      go        art");
+    printf("\nsuper\n");
+    printf("----------------------------------------\n\n");
+
+    printf("Other options:\n");
+    printf("----------------------------------------");
+    printf("\n3d      denormalize change     rgbgr");
+    printf("\nreset   test        statistics normalize");
+    printf("\nrescale ops         speed      partial");
+    printf("\naverage stacked     visualize  imtest\n");
+    printf("----------------------------------------\n\n");
+}
+
 int main(int argc, char **argv)
 {
-    //test_resize("data/bad.jpg");
-    //test_box();
-    //test_convolutional_layer();
     if(argc < 2){
+        print_help_dialog_darknet();
         fprintf(stderr, "usage: %s <function>\n", argv[0]);
         return 0;
     }
