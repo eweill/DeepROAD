@@ -15,7 +15,7 @@ Now that the DeepROAD repo is cloned, building darknet can continue.  A Makefile
 
 	# Copy the Jetson Makefile, make the darknet executable and other object files needed,
 	# and return to original directory.
-	cd /home/ubuntu/Software/DeepROAD/CU-Darknet; cp Makefile.jetson; make; cd -
+	cd /home/ubuntu/Software/DeepROAD/CU-Darknet; cp Makefile.jetson Makefile; make; cd -
 
 If there are no errors, it should have compiled correctly.  Now try running darknet.
 	
