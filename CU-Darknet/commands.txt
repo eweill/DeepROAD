@@ -3,7 +3,7 @@
   ./darknet yolo train cfg/yolo.train.cfg
 
 # test yolo on image (default threshold is .2)
-  ./darknet yolo test cfg/yolo.cfg weights/yolo.weights data/dog.jpg-thresh 0
+  ./darknet yolo test cfg/yolo.cfg weights/yolo.weights data/dog.jpg -thresh 0
 
 # classifier example
   ./darknet classifier predict cfg/imagenet1k.dataset cfg/extraction.cfg extraction.weights data/dog.jpg
