@@ -3,10 +3,7 @@
 Clone the entire DeepROAD repository into your scratch2 directory on Palmetto.  This includes all the necessary scripts to start using Darknet, including scripts to download weights.  cuDNN needs to be cloned seperately into the correct location to work with the Makefile.
 
 	# Clone DeepROAD to scratch2
-	git clone https://github.com/eweill/DeepROAD.git /scratch2/${USER}/DeepROAD
-
-	# Clone cuDNN to scratch2
-	git clone https://github.com/eweill/cuDNNv5.1_CUDAv7.5 /scratch2/${USER}/cuDNN
+	git clone --recursive https://github.com/eweill/DeepROAD.git /scratch2/${USER}/DeepROAD
 
 Next we need to create an interactive job on a node with a GPGPU (in this case a K40).
 
