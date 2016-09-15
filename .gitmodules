@@ -1,0 +1,3 @@
+[submodule "cuDNNv5.1_CUDAv7.5"]
+	path = cuDNNv5.1_CUDAv7.5
+	url = https://github.com/eweill/cuDNNv5.1_CUDAv7.5
