@@ -1,9 +1,12 @@
 # Install Darknet on Palmetto
 
-Clone the entire DeepROAD repository into your scratch2 directory on Palmetto.  This includes all the necessary scripts to start using Darknet, including a local cuDNN installation.
+Clone the entire DeepROAD repository into your scratch2 directory on Palmetto.  This includes all the necessary scripts to start using Darknet, including scripts to download weights.  cuDNN needs to be cloned seperately into the correct location to work with the Makefile.
 
 	# Clone DeepROAD to scratch2
 	git clone https://github.com/eweill/DeepROAD.git /scratch2/${USER}/DeepROAD
+
+	# Clone cuDNN to scratch2
+	git clone https://github.com/eweill/cuDNNv5.1_CUDAv7.5 /scratch2/${USER}/cuDNN
 
 Next we need to create an interactive job on a node with a GPGPU (in this case a K40).
 
@@ -29,8 +32,8 @@ Note that the list of modules may appear in a different order.  As long as they 
 
 We can now start to build darknet (with the provided modified Makefile).  We want to `make` CU-Darknet so that all object files and dependencies are built successfully.  The Makefile defaults to using CUDa and cuDNN, however, not using OpenCV.  If you would like to use OpenCV, simply modify the Makefile to read `OPENCV=1` instead of 0.  Conversely, to use the CPU-only (no-gpu) version of darknet either change the CUDA and CUDNN flags to 0 or compile with them set to 1 and use the -nogpu flag with executing ./darknet.
 	
-	# Copy the Palmetto Makefile, make the darknet executable and other object files need,
-	and return to original directory.
+	# Copy the Palmetto Makefile, make the darknet executable and other object files needed,
+	# and return to original directory.
 	cd /scratch2/${USER}/DeepROAD/CU-Darknet; cp Makefile.palmetto Makefile; make; cd -
 
 If there are no errors, it should have compiled correctly.  Now try running darknet.
