@@ -13,24 +13,25 @@ Please follow the instruction on [Install Darknet on Linux](https://github.com/e
 
 Simply run the `get-data` script to retrieve weights and configuration as follows
 
-	# To get a list of all weights possible to download
+	```
+    # To get a list of all weights possible to download
     # Palmetto, Jetson TX1, or Other Linux distro
 	/scratch2/${USER}/DeepROAD/CU-Darknet/bin/get-data help
-    
-    <!-- tsk -->
+    ```
 
+    ```
 	# To download a single set of weights (and/or configuration) [vgg-16 for example]
     # Palmetto
 	/scratch2/${USER}/DeepROAD/CU-Darknet/bin/get-data vgg16 palmetto
-    
+
     # Jetson TX1
     /home/${USER}/DeepROAD/CU-Darknet/bin/get-data vgg16 jetson
     
     # Other linux distro
     /home/${USER}/DeepROAD/CU-Darknet/bin/get-data vgg16 linux
-    
-    <!-- tsk -->
+    ```
 
+    ```
 	# To go ahead and download all weights and configurations
     # Palmetto
 	/scratch2/${USER}/DeepROAD/CU-Darknet/bin/get-data all palmetto
@@ -40,5 +41,6 @@ Simply run the `get-data` script to retrieve weights and configuration as follow
     
     # Other linux distro
     /home/${USER}/DeepROAD/CU-Darknet/bin/get-data all linux
+    ```
 
 This script will check the `weights` and `cfg` directories to make sure not to overwrite any files already located in those directories.
