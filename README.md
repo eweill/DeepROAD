@@ -17,6 +17,7 @@ Simply run the `get-data` script to retrieve weights and configuration as follow
     # Palmetto, Jetson TX1, or Other Linux distro
 	/scratch2/${USER}/DeepROAD/CU-Darknet/bin/get-data help
 
+
 	# To download a single set of weights (and/or configuration) [vgg-16 for example]
     # Palmetto
 	/scratch2/${USER}/DeepROAD/CU-Darknet/bin/get-data vgg16 palmetto
@@ -26,6 +27,7 @@ Simply run the `get-data` script to retrieve weights and configuration as follow
     
     # Other linux distro
     /home/${USER}/DeepROAD/CU-Darknet/bin/get-data vgg16 linux
+
 
 	# To go ahead and download all weights and configurations
     # Palmetto
