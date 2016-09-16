@@ -31,7 +31,7 @@ We can now start to build darknet (with the provided modified Makefile).  We wan
 	
 	# Copy the Palmetto Makefile, make the darknet executable and other object files needed,
 	# and return to original directory.
-	cd /scratch2/${USER}/DeepROAD/CU-Darknet; cp Makefile.palmetto Makefile; make; cd -
+	cd /scratch2/${USER}/DeepROAD/CU-Darknet; cp INSTALL/Makefile.palmetto Makefile; make; cd -
 
 If there are no errors, it should have compiled correctly.  Now try running darknet.
 
