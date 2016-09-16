@@ -38,7 +38,7 @@ fi
 if [ "$2" == "palmetto" ]; then
     DIR="/scratch2/${LOCAL_DIR}"
 elif [ "$2" == "jetson" ] || [ "$2" == "linux" ]; then
-    DIR="/home/${LOCAL_DIR}"
+    DIR="/home/${USER}/Software/DeepROAD/CU-Darknet"
 else
     echo "Not a recognized OS."
     echo "Exiting..."
