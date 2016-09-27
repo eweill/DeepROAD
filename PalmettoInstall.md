@@ -17,7 +17,8 @@ After successfully invoking an interactive session on Palmetto, set up the prope
 	### Should return 'No Modulefiles Currently Loaded.'
 
 	# Source the `yolo` script to set all env and path variables.
-	source /scratch2/eweill/DeepROAD/bin/setEnv palmetto
+    source /scratch2/${USER}/DeepROAD/bin/modules add
+	source /scratch2/${USER}/DeepROAD/bin/setEnv palmetto
 
 	# See that all modules are loaded correctly
 	module list

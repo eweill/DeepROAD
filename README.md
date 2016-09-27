@@ -44,3 +44,11 @@ To download all weights and configration files
     /home/${USER}/DeepROAD/CU-Darknet/bin/get-data all linux
 
 This script will check the `weights` and `cfg` directories to make sure not to overwrite any files already located in those directories.
+
+To make changes to this repo from Palmetto, there may be a need to remove all modules that have been loaded before `git` commands will work properly.  This can be done by simply executing the following command
+
+    source /scratch2/${USER}/DeepROAD/bin/modules remove
+
+After `git (add/push/etc.)`, modules can be added again for continued work by executing
+
+    source /scratch2/${USER}/DeepROAD/bin/modules add
