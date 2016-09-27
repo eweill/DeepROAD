@@ -22,6 +22,7 @@ if [ "$1" == "help" ] || [ "$1" == '-h' ] || [ "$1" == "" ]; then
     echo "      palmetto: install data sets on /scratch2"
     echo "      jetson: install data sets in /home/ubuntu"
     echo "      linux: install data sets in /home/${USER}"
+    echo "      *custom file path can be entered*"
     exit
 fi
 
@@ -39,6 +40,8 @@ if [ "$2" == "palmetto" ]; then
     DIR="/scratch2/${LOCAL_DIR}"
 elif [ "$2" == "jetson" ] || [ "$2" == "linux" ]; then
     DIR="/home/${USER}/Software/DeepROAD/CU-Darknet"
+elif [ ! -z "$2" ]; then
+    DIR="$2"
 else
     echo "Not a recognized OS."
     echo "Exiting..."
