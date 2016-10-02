@@ -13,5 +13,5 @@ elif [ "$1"== "remove" ]; then
     module purge
     
 else
-    print "Unrecognized command line arguments."
+    echo "Unrecognized command line arguments."
 fi
